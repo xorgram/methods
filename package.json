@@ -4,6 +4,7 @@
   "main": "dist/index.js",
   "license": "MIT",
   "devDependencies": {
+    "@types/lodash": "^4.14.178",
     "@types/node": "^17.0.18",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
     "@typescript-eslint/parser": "^5.12.0",
@@ -27,5 +28,8 @@
       "eslint --max-warnings=0 --fix",
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
