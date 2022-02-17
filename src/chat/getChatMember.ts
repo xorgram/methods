@@ -7,10 +7,10 @@ export interface GetChatMember {
 	userId: EntityLike
 }
 
-export const getChatMember = async (
+export async function getChatMember(
 	{ chatId, userId }: GetChatMember,
 	client: TelegramClient
-) => {
+) {
 	const chat = await client.getEntity(chatId)
 	const user = await client.getEntity(userId)
 

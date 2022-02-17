@@ -7,10 +7,10 @@ export interface BanChatMember {
 	untilDate?: number
 }
 
-export const banChatMember = async (
+export async function banChatMember(
 	{ chatId, userId, untilDate = 0 }: BanChatMember,
 	client: TelegramClient
-) => {
+) {
 	const userEntity = await client.getEntity(userId)
 	const chatEntity = await client.getEntity(chatId)
 
