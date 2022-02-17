@@ -10,14 +10,14 @@ export class ChatHelper {
 	}
 
 	async addChatMember(props: AddChatMembers) {
-		return await addChatMembers(props, this.client)
+		return await addChatMembers(this.client, props)
 	}
 
 	async banChatMember(props: BanChatMember) {
-		return await banChatMember(props, this.client)
+		return await banChatMember(this.client, props)
 	}
 
 	async getChatMember(props: GetChatMember) {
-		return await getChatMember(props, this.client)
+		return await getChatMember(this.client, props)
 	}
 }

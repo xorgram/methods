@@ -8,8 +8,8 @@ export interface GetChatMember {
 }
 
 export async function getChatMember(
-	{ chatId, userId }: GetChatMember,
-	client: TelegramClient
+	client: TelegramClient,
+	{ chatId, userId }: GetChatMember
 ) {
 	const chat = await client.getEntity(chatId)
 	const user = await client.getEntity(userId)

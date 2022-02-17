@@ -7,8 +7,8 @@ export interface AddChatMembers {
 }
 
 export async function addChatMembers(
-	{ chatId, userId, forwardLimit = 100 }: AddChatMembers,
-	client: TelegramClient
+	client: TelegramClient,
+	{ chatId, userId, forwardLimit = 100 }: AddChatMembers
 ) {
 	const chatEntity = await client.getEntity(chatId)
 

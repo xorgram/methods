@@ -8,8 +8,8 @@ export interface BanChatMember {
 }
 
 export async function banChatMember(
-	{ chatId, userId, untilDate = 0 }: BanChatMember,
-	client: TelegramClient
+	client: TelegramClient,
+	{ chatId, userId, untilDate = 0 }: BanChatMember
 ) {
 	const userEntity = await client.getEntity(userId)
 	const chatEntity = await client.getEntity(chatId)
