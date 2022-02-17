@@ -1,5 +1,6 @@
 import { TelegramClient } from 'telegram'
 import { addChatMembers, AddChatMembers } from './addChatMembers'
+import { archiveChats, ArchiveChats } from './archiveChats'
 import { banChatMember, BanChatMember } from './banChatMember'
 import { getChatMember, GetChatMember } from './getChatMember'
 
@@ -11,6 +12,10 @@ export class ChatHelper {
 
 	async addChatMember(props: AddChatMembers) {
 		return await addChatMembers(this.client, props)
+	}
+
+	async archiveChats(props: ArchiveChats) {
+		return await archiveChats(this.client, props)
 	}
 
 	async banChatMember(props: BanChatMember) {
