@@ -1,5 +1,5 @@
 {
-  "name": "@xorgram/modules",
+  "name": "@xorgram/helpers",
   "version": "1.0.0",
   "main": "dist/index.js",
   "license": "MIT",
