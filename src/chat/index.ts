@@ -3,6 +3,7 @@ import { addChatMembers, AddChatMembers } from './addChatMembers'
 import { archiveChats, ArchiveChats } from './archiveChats'
 import { banChatMember, BanChatMember } from './banChatMember'
 import { createChannel, CreateChannel } from './createChannel'
+import { createGroup, CreateGroup } from './createGroup'
 import { getChatMember, GetChatMember } from './getChatMember'
 
 export class ChatHelper {
@@ -25,6 +26,10 @@ export class ChatHelper {
 
 	async createChannel(props: CreateChannel) {
 		return await createChannel(this.client, props)
+	}
+
+	async createGroup(props: CreateGroup) {
+		return await createGroup(this.client, props)
 	}
 
 	async getChatMember(props: GetChatMember) {
