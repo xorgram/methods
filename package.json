@@ -19,7 +19,8 @@
   "scripts": {
     "prepare": "husky install",
     "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "eslint . --ext .ts --max-warnings=0"
+    "lint": "eslint . --ext .ts --max-warnings=0",
+    "build": "tsc"
   },
   "lint-staged": {
     "src/**/*.ts": [
