@@ -2,6 +2,7 @@ import { TelegramClient } from 'telegram'
 import { addChatMembers, AddChatMembers } from './addChatMembers'
 import { archiveChats, ArchiveChats } from './archiveChats'
 import { banChatMember, BanChatMember } from './banChatMember'
+import { createChannel, CreateChannel } from './createChannel'
 import { getChatMember, GetChatMember } from './getChatMember'
 
 export class ChatHelper {
@@ -20,6 +21,10 @@ export class ChatHelper {
 
 	async banChatMember(props: BanChatMember) {
 		return await banChatMember(this.client, props)
+	}
+
+	async createChannel(props: CreateChannel) {
+		return await createChannel(this.client, props)
 	}
 
 	async getChatMember(props: GetChatMember) {
