@@ -8,6 +8,7 @@ import { createSupergroup, CreateSupergroup } from './createSupergroup'
 import { deleteChannel, DeleteChannel } from './deleteChannel'
 import { deleteChatPhoto, DeleteChatPhoto } from './deleteChatPhoto'
 import { deleteSupergroup, DeleteSupergroup } from './deleteSupergroup'
+import { deleteUserHistory, DeleteUserHistory } from './deleteUserHistory'
 import { getChatMember, GetChatMember } from './getChatMember'
 
 export class ChatHelper {
@@ -50,6 +51,10 @@ export class ChatHelper {
 
 	async deleteSupergroup(props: DeleteSupergroup) {
 		return await deleteSupergroup(this.client, props)
+	}
+
+	async deleteUserHistory(props: DeleteUserHistory) {
+		return await deleteUserHistory(this.client, props)
 	}
 
 	async getChatMember(props: GetChatMember) {
