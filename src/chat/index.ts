@@ -4,6 +4,7 @@ import { archiveChats, ArchiveChats } from './archiveChats'
 import { banChatMember, BanChatMember } from './banChatMember'
 import { createChannel, CreateChannel } from './createChannel'
 import { createGroup, CreateGroup } from './createGroup'
+import { createSupergroup, CreateSupergroup } from './createSupergroup'
 import { getChatMember, GetChatMember } from './getChatMember'
 
 export class ChatHelper {
@@ -30,6 +31,10 @@ export class ChatHelper {
 
 	async createGroup(props: CreateGroup) {
 		return await createGroup(this.client, props)
+	}
+
+	async createSupergroup(props: CreateSupergroup) {
+		return await createSupergroup(this.client, props)
 	}
 
 	async getChatMember(props: GetChatMember) {
