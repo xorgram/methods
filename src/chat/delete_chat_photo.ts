@@ -1,9 +1,8 @@
 import { TelegramClient, Api } from 'telegram'
-import { EntityLike } from 'telegram/define'
 import DeleteChannel from './delete_channel'
 
 export interface DeleteChatPhotoParams {
-	chatId: EntityLike
+	chatId: Api.TypeEntityLike
 }
 
 export default class DeleteChatPhoto extends DeleteChannel {

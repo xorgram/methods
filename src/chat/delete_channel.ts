@@ -1,9 +1,8 @@
 import { Api } from 'telegram'
-import { EntityLike } from 'telegram/define'
 import CreateSupergroup from './create_supergroup'
 
 export interface DeleteChannelParams {
-	chatId: EntityLike
+	chatId: Api.TypeEntityLike
 }
 
 export default class DeleteChannel extends CreateSupergroup {

@@ -1,9 +1,8 @@
 import { Api } from 'telegram'
-import { EntityLike } from 'telegram/define'
 import AddChatMembers from './add_chat_members'
 
 export interface ArchiveChatsParams {
-	chatIds: EntityLike | EntityLike[]
+	chatIds: Api.TypeEntityLike | Api.TypeEntityLike[]
 }
 
 export default class ArchiveChats extends AddChatMembers {

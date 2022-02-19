@@ -1,10 +1,9 @@
 import { Api } from 'telegram'
-import { EntityLike } from 'telegram/define'
 import DeleteSupergroup from './delete_supergroup'
 
 export interface DeleteUserHistoryParams {
-	chatId: EntityLike
-	userId: EntityLike
+	chatId: Api.TypeEntityLike
+	userId: Api.TypeEntityLike
 }
 
 export default class DeleteUserHistory extends DeleteSupergroup {

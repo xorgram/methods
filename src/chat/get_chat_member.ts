@@ -1,11 +1,10 @@
 import { Api } from 'telegram'
-import { EntityLike } from 'telegram/define'
 import lodash from 'lodash'
 import DeleteUserHistory from './delete_user_history'
 
 export interface GetChatMemberParams {
-	chatId: EntityLike
-	userId: EntityLike
+	chatId: Api.TypeEntityLike
+	userId: Api.TypeEntityLike
 }
 
 export default class GetChatMember extends DeleteUserHistory {

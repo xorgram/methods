@@ -1,10 +1,9 @@
 import { Api } from 'telegram'
-import { EntityLike } from 'telegram/define'
 import ArchiveChats from './archive_chats'
 
 export interface BanChatMemberParams {
-	chatId: EntityLike
-	userId: EntityLike
+	chatId: Api.TypeEntityLike
+	userId: Api.TypeEntityLike
 	untilDate?: number
 }
 

@@ -1,9 +1,8 @@
 import { Api } from 'telegram'
-import { EntityLike } from 'telegram/define'
 import DeleteChatPhoto from './delete_chat_photo'
 
 export interface DeleteSupergroupParams {
-	chatId: EntityLike
+	chatId: Api.TypeEntityLike
 }
 
 export default class DeleteSupergroup extends DeleteChatPhoto {

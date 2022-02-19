@@ -1,10 +1,9 @@
 import { Api } from 'telegram'
-import { EntityLike } from 'telegram/define'
 import CreateChannel from './create_channel'
 
 export interface CreateGroupParams {
 	title: string
-	users: EntityLike | EntityLike[]
+	users: Api.TypeEntityLike | Api.TypeEntityLike[]
 }
 
 export default class CreateGroup extends CreateChannel {
