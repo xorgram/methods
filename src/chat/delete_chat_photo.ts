@@ -1,4 +1,4 @@
-import { TelegramClient, Api } from 'telegram'
+import { Api } from 'telegram'
 import DeleteChannel from './delete_channel'
 
 export interface DeleteChatPhotoParams {
