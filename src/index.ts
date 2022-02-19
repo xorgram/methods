@@ -1,3 +1,3 @@
-import ChatMethods from './chat'
+import Chats from './chats'
 
-export class Methods extends ChatMethods {}
+export class Methods extends Chats {}
