@@ -13,17 +13,18 @@
 			"email": "arnabxd@pm.me"
 		}
 	],
-	"lint-staged": {
-		"src/**/*.ts": [
-			"eslint --max-warnings=0 --fix",
-			"prettier --write"
-		]
-	},
 	"scripts": {
-		"build": "tsc",
 		"prepare": "husky install",
+		"build": "rimraf dist && tsc",
+		"fix": "npm run lint -- --fix",
 		"format": "prettier --write \"src/**/*.ts\"",
 		"lint": "eslint . --ext .ts --max-warnings=0"
+	},
+	"lint-staged": {
+		"src/**/*.ts": [
+			"npm run lint",
+			"npm run format"
+		]
 	},
 	"dependencies": {
 		"big-integer": "^1.6.51",
