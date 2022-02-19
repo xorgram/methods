@@ -1,19 +1,29 @@
 {
 	"name": "@xorgram/methods",
 	"version": "1.0.0",
-	"main": "dist/index.js",
 	"license": "LGPL-3.0",
-	"scripts": {
-		"prepare": "husky install",
-		"format": "prettier --write \"src/**/*.ts\"",
-		"lint": "eslint . --ext .ts --max-warnings=0",
-		"build": "tsc"
-	},
+	"main": "dist/index.js",
+	"authors": [
+		{
+			"name": "Roj",
+			"email": "ez@roj.im"
+		},
+		{
+			"name": "Arnab Paryali",
+			"email": "arnabxd@pm.me"
+		}
+	],
 	"lint-staged": {
 		"src/**/*.ts": [
 			"eslint --max-warnings=0 --fix",
 			"prettier --write"
 		]
+	},
+	"scripts": {
+		"build": "tsc",
+		"prepare": "husky install",
+		"format": "prettier --write \"src/**/*.ts\"",
+		"lint": "eslint . --ext .ts --max-warnings=0"
 	},
 	"dependencies": {
 		"big-integer": "^1.6.51",
