@@ -1,13 +1,3 @@
-import { TelegramClient } from 'telegram'
-import { ChatHelper } from './chat'
+import ChatMethods from './chat'
 
-export class XorHelper {
-	private client: TelegramClient
-	constructor(_client: TelegramClient) {
-		this.client = _client
-	}
-
-	get chat() {
-		return new ChatHelper(this.client)
-	}
-}
+export class Methods extends ChatMethods {}
