@@ -7,8 +7,8 @@ export interface CreateChannelParams {
 }
 
 export default class CreateChannel extends BanChatMember {
-	async createChannel({ title, about = '' }: CreateChannelParams) {
-		return await this.client.invoke(
+	createChannel({ title, about = '' }: CreateChannelParams) {
+		return this.client.invoke(
 			new Api.channels.CreateChannel({ title, about, broadcast: true })
 		)
 	}

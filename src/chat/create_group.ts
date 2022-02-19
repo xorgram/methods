@@ -7,12 +7,10 @@ export interface CreateGroupParams {
 }
 
 export default class CreateGroup extends CreateChannel {
-	async createGroup({ title, users }: CreateGroupParams) {
+	createGroup({ title, users }: CreateGroupParams) {
 		if (!Array.isArray(users)) {
 			users = [users]
 		}
-		return await this.client.invoke(
-			new Api.messages.CreateChat({ title, users })
-		)
+		return this.client.invoke(new Api.messages.CreateChat({ title, users }))
 	}
 }

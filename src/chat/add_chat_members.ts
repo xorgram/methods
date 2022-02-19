@@ -14,11 +14,9 @@ export default class AddChatMembers extends ClientHolder {
 		forwardLimit = 100
 	}: AddChatMembersParams) {
 		const chatEntity = await this.client.getEntity(chatId)
-
 		if (!Array.isArray(userId)) {
 			userId = [userId]
 		}
-
 		if (chatEntity instanceof Api.Chat) {
 			for (const user of userId) {
 				await this.client.invoke(
@@ -39,7 +37,6 @@ export default class AddChatMembers extends ClientHolder {
 				})
 			)
 		}
-
 		return true
 	}
 }

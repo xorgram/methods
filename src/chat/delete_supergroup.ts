@@ -12,7 +12,6 @@ export default class DeleteSupergroup extends DeleteChatPhoto {
 				channel: await this.client.getEntity(chatId)
 			})
 		)
-
 		return true
 	}
 }

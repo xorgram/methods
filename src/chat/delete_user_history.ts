@@ -14,7 +14,6 @@ export default class DeleteUserHistory extends DeleteSupergroup {
 				participant: await this.client.getEntity(userId)
 			})
 		)
-
 		return Boolean(r.ptsCount)
 	}
 }

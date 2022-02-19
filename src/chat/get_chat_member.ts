@@ -11,7 +11,6 @@ export default class GetChatMember extends DeleteUserHistory {
 	async getChatMember({ chatId, userId }: GetChatMemberParams) {
 		const chat = await this.client.getEntity(chatId)
 		const user = await this.client.getEntity(userId)
-
 		if (chat instanceof Api.Channel) {
 			return (
 				await this.client.invoke(
@@ -22,10 +21,10 @@ export default class GetChatMember extends DeleteUserHistory {
 			const fullChat = await this.client.invoke(
 				new Api.messages.GetFullChat({ chatId: chat.id })
 			)
-
 			const members = fullChat.users
-
 			return lodash.find(members, { id: user.id })
+		} else {
+			throw new Error(`The chatId "${chatId}" belongs to a user`)
 		}
 	}
 }

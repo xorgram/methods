@@ -10,21 +10,16 @@ export default class ArchiveChats extends AddChatMembers {
 		if (!Array.isArray(chatIds)) {
 			chatIds = [chatIds]
 		}
-
-		const folder: Api.InputFolderPeer[] = []
-
+		const folderPeers = new Array<Api.InputFolderPeer>()
 		for (const chat of chatIds) {
-			folder.push(
+			folderPeers.push(
 				new Api.InputFolderPeer({
 					peer: await this.client.getInputEntity(chat),
 					folderId: 1
 				})
 			)
 		}
-
-		await this.client.invoke(
-			new Api.folders.EditPeerFolders({ folderPeers: folder })
-		)
+		await this.client.invoke(new Api.folders.EditPeerFolders({ folderPeers }))
 		return true
 	}
 }

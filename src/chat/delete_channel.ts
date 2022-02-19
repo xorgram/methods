@@ -12,7 +12,6 @@ export default class DeleteChannel extends CreateSupergroup {
 				channel: await this.client.getEntity(chatId)
 			})
 		)
-
 		return true
 	}
 }
