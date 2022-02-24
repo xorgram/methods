@@ -1,3 +1,3 @@
-import GetChatMember from './get_chat_member'
+import UnbanChatMember from './unban_chat_members'
 
-export default class Chats extends GetChatMember {}
+export default class Chats extends UnbanChatMember {}
