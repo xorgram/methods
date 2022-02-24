@@ -5,6 +5,7 @@
 	"license": "LGPL-3.0",
 	"main": "dist/index.js",
 	"homepage": "https://github.com/xorgram/methods",
+	"types": "dist/index.d.ts",
 	"authors": [
 		{
 			"name": "Roj",
