@@ -1,0 +1,7 @@
+.github
+.husky
+src
+node_modules
+.commitlintrc
+.eslintrc
+.prettierrc
