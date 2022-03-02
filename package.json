@@ -30,7 +30,8 @@
 		"build": "rimraf dist && tsc",
 		"fix": "npm run lint -- --fix",
 		"format": "prettier --write \"src/**/*.ts\"",
-		"lint": "eslint . --ext .ts --max-warnings=0"
+		"lint": "eslint . --ext .ts --max-warnings=0",
+		"prepublish": "rimraf dist && tsc"
 	},
 	"lint-staged": {
 		"src/**/*.ts": [
