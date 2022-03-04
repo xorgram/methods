@@ -144,21 +144,23 @@ export default class Chats extends ClientHolder {
 		return true
 	}
 
-	createChannel({ title, about = '' }: CreateChannelParams) {
-		return this.client.invoke(
+	async createChannel({ title, about = '' }: CreateChannelParams) {
+		return await this.client.invoke(
 			new Api.channels.CreateChannel({ title, about, broadcast: true })
 		)
 	}
 
-	createGroup({ title, users }: CreateGroupParams) {
+	async createGroup({ title, users }: CreateGroupParams) {
 		if (!Array.isArray(users)) {
 			users = [users]
 		}
-		return this.client.invoke(new Api.messages.CreateChat({ title, users }))
+		return await this.client.invoke(
+			new Api.messages.CreateChat({ title, users })
+		)
 	}
 
-	createSupergroup({ title, about = '' }: CreateSupergroupParams) {
-		return this.client.invoke(
+	async createSupergroup({ title, about = '' }: CreateSupergroupParams) {
+		return await this.client.invoke(
 			new Api.channels.CreateChannel({ title, about, megagroup: true })
 		)
 	}
