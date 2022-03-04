@@ -60,7 +60,7 @@ jobs:
       - name: Version
         run: npm version ${{ steps.branch_name.outputs.VERSION }}
 
-      - name: Commit Changes
+      - name: Push
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
