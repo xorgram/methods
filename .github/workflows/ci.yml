@@ -54,7 +54,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - id: info
+        run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+
+      - name: Version
+        run: npm version ${{ steps.branch_name.outputs.VERSION }}
+
+      - name: Commit Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git push
+
       - name: Publish
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
