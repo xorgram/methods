@@ -70,6 +70,10 @@ jobs:
       - name: Version
         run: npm version --no-git-tag-version ${{ env.VERSION }}
 
+      - run: |
+          git add -A
+          git commit --no-verify -am "${{ env.VERSION }}"
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
