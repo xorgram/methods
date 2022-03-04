@@ -57,15 +57,15 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      - id: info
-        run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
-
       - run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
+      - id: info
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+
       - name: Version
-        run: npm version ${{ steps.branch_name.outputs.VERSION }}
+        run: npm version ${{ env.VERSION }}
 
       - name: Push changes
         uses: ad-m/github-push-action@master
