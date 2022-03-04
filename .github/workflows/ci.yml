@@ -54,9 +54,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install
-        run: npm ci
-
       - name: Publish
         run: npm publish
         env:
