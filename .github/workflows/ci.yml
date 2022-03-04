@@ -62,7 +62,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
 
       - id: info
-        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
 
       - name: Version
         run: npm version ${{ env.VERSION }}
