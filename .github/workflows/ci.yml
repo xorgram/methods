@@ -60,26 +60,6 @@ jobs:
       - name: Install
         run: npm ci
 
-      - run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-
-      - id: info
-        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
-
-      - name: Version
-        run: npm version --no-git-tag-version ${{ env.VERSION }}
-
-      - run: |
-          git add -A
-          git commit --no-verify -am "${{ env.VERSION }}"
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-
       - name: Publish
         run: npm publish
         env:
