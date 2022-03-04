@@ -57,6 +57,22 @@ export interface GetChatMemberParams {
 	userId: Api.TypeEntityLike
 }
 
+export interface PinChatMessageParams {
+	/** Unique identifier or username of the target chat. Can be number | string | bigint */
+	chatId: Api.TypeEntityLike
+	/** Identifier of a message to pin. */
+	messageId: number
+	/**
+	 * Pass True, if it is not necessary to send a notification to all chat members about the new pinned message.
+	 * Notifications are always disabled in channels.
+	 */
+	disableNotification?: boolean
+	/**
+	 * Pass True to pin the message for both sides (you and recipient).
+	 * Applicable to private chats only. Defaults to False.
+	 */
+	bothSides?: boolean
+}
 export interface PromoteChatMemberParams {
 	chatId: Api.TypeEntityLike
 	userId: Api.TypeEntityLike
@@ -77,6 +93,13 @@ export interface PromoteChatMemberParams {
 export interface UnbanChatMemberParmas {
 	chatId: Api.TypeEntityLike
 	userId: Api.TypeEntityLike
+}
+
+export interface UnpinChatMessageParams {
+	/** Unique identifier or username of the target chat. Can be number | string | bigint */
+	chatId: Api.TypeEntityLike
+	/** Identifier of a message to unpin. */
+	messageId: number
 }
 
 export default class Chats extends ClientHolder {
@@ -252,6 +275,26 @@ export default class Chats extends ClientHolder {
 		}
 	}
 
+	/**
+	 * Pin a message in a group, channel or your own chat.
+	 * You must be an administrator in the chat for this to work and must have the "can_pin_messages" admin right in the supergroup or "can_edit_messages" admin right in the channel.
+	 */
+	async pinChatMessage({
+		chatId,
+		messageId,
+		bothSides = false,
+		disableNotification = false
+	}: PinChatMessageParams) {
+		return await this.client.invoke(
+			new Api.messages.UpdatePinnedMessage({
+				peer: await this.client.getEntity(chatId),
+				id: messageId,
+				silent: disableNotification,
+				pmOneside: !bothSides
+			})
+		)
+	}
+
 	async promoteChatMember({
 		chatId,
 		userId,
@@ -305,5 +348,19 @@ export default class Chats extends ClientHolder {
 		}
 
 		return true
+	}
+
+	/**
+	 * Unpin a message in a group, channel or your own chat.
+	 * You must be an administrator in the chat for this to work and must have the "can_pin_messages" admin right in the supergroup or "can_edit_messages" admin right in the channel.
+	 */
+	async unpinChatMessage({ chatId, messageId }: UnpinChatMessageParams) {
+		return await this.client.invoke(
+			new Api.messages.UpdatePinnedMessage({
+				peer: await this.client.getEntity(chatId),
+				id: messageId,
+				unpin: true
+			})
+		)
 	}
 }
