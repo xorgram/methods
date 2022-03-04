@@ -57,6 +57,23 @@ export interface GetChatMemberParams {
 	userId: Api.TypeEntityLike
 }
 
+export interface PromoteChatMemberParams {
+	chatId: Api.TypeEntityLike
+	userId: Api.TypeEntityLike
+	isAnonymous?: boolean
+	canManageChat?: boolean
+	canChangeInfo?: boolean
+	canPostMessages?: boolean
+	canEditMessages?: boolean
+	canDeleteMessages?: boolean
+	canRestrictMembers?: boolean
+	canInviteUsers?: boolean
+	canPinMessages?: boolean
+	canPromoteMembers?: boolean
+	canManageCalls?: boolean
+	rank?: string
+}
+
 export interface UnbanChatMemberParmas {
 	chatId: Api.TypeEntityLike
 	userId: Api.TypeEntityLike
@@ -233,6 +250,44 @@ export default class Chats extends ClientHolder {
 		} else {
 			throw new Error(`The chatId "${chatId}" belongs to a user`)
 		}
+	}
+
+	async promoteChatMember({
+		chatId,
+		userId,
+		isAnonymous = false,
+		canManageChat = true,
+		canChangeInfo = false,
+		canPostMessages = false,
+		canEditMessages = false,
+		canDeleteMessages = false,
+		canRestrictMembers = false,
+		canInviteUsers = false,
+		canPinMessages = false,
+		canPromoteMembers = false,
+		canManageCalls = false,
+		rank = 'Admin'
+	}: PromoteChatMemberParams) {
+		return await this.client.invoke(
+			new Api.channels.EditAdmin({
+				userId: await this.client.getEntity(userId),
+				channel: await this.client.getEntity(chatId),
+				rank: rank,
+				adminRights: new Api.ChatAdminRights({
+					anonymous: isAnonymous,
+					changeInfo: canChangeInfo,
+					postMessages: canPostMessages,
+					editMessages: canEditMessages,
+					deleteMessages: canDeleteMessages,
+					banUsers: canRestrictMembers,
+					inviteUsers: canInviteUsers,
+					pinMessages: canPinMessages,
+					addAdmins: canPromoteMembers,
+					manageCall: canManageCalls,
+					other: canManageChat
+				})
+			})
+		)
 	}
 
 	async unbanChatMember({ chatId, userId }: UnbanChatMemberParmas) {
