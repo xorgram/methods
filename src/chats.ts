@@ -5,8 +5,8 @@ import bigInt from 'big-integer'
 import ClientHolder from './client_holder'
 
 export interface AddChatMembersParams {
-	chatId: number
-	userId: number | number[]
+	chatId: Api.TypeEntityLike
+	userId: Api.TypeEntityLike | Api.TypeEntityLike[]
 	forwardLimit?: number
 }
 
