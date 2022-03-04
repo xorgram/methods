@@ -54,7 +54,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install modules
+      - name: Install
         run: npm ci
 
       - name: Publish
