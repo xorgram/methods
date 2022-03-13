@@ -1,7 +1,7 @@
 {
 	"name": "@xorgram/methods",
 	"description": "Additional methods for GramJS inspired from pyrogram",
-	"version": "0.0.0-test.0",
+	"version": "0.0.1-beta.1",
 	"license": "LGPL-3.0",
 	"main": "dist/index.js",
 	"homepage": "https://github.com/xorgram/methods",
