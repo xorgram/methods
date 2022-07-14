@@ -1,6 +1,4 @@
-import { Api } from "$grm";
-import { bigInt } from "$deps";
-
+import { Api, bigInt } from "./deps.ts";
 import ClientHolder from "./client_holder.ts";
 
 export interface AddChatMembersParams {
