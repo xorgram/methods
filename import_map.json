@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "$deps": "./deps.ts",
+    "$grm": "https://deno.land/x/grm@v0.1.3/mod.ts"
+  }
+}
