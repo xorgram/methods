@@ -1,2 +1,2 @@
-export { bigInt } from "https://deno.land/x/grm@0.3.5/deps.ts";
-export { Api, TelegramClient } from "https://deno.land/x/grm@0.3.5/mod.ts";
+export { bigInt } from "https://deno.land/x/grm@0.3.6/deps.ts";
+export { Api, TelegramClient } from "https://deno.land/x/grm@0.3.6/mod.ts";
